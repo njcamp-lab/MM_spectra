@@ -1,0 +1,86 @@
+Loading required libraries
+
+Directory SpectraData exists, data will be written there
+Directory SpectraData/Diag exists, diagnostics will be written there
+
+Loaded expression datafile: commpass_transcript_counts_20210601.gz
+         194622 rows (transcripts/genes)
+         911 columns (samples)
+Transcript column detected in expression file, running pipeline in transcript mode
+
+Loaded gene inclusion file: commpass_gene_metadata_20210601.csv
+         17409 genes loaded
+         17324 genes allowed in size-factor calc and spectra derivation (prior to QC)
+         0 gene(s) forced into normalization (ignore QC) and spectra derivation
+         85 gene(s) allowed to bypass QC for reporting purposes only (corrected & normalized)
+
+Loaded batch variables file: commpass_sample_data_auto_followincl_20210601.csv
+         887 samples loaded
+         768 samples to be used in spectra derivation
+         119 samples to be used only in batch correction
+         12 variables found (including sample_id & status)
+         45 batch(es) found.
+        Smallest batch size: 4
+
+Filtered out 9947 genes where more than 0.05 of samples had fewer than 100 expected counts
+
+ 66 genes were marked as "report" but pass QC. Updating them to "allow"
+         7449 gene(s) remain
+        Looking for samples where more than 10% of the high-quality genes have fewer than 100 counts
+         1 sample(s) marked as "use" had low quality and will be removed.
+        In total, removed 1 low quality samples.
+
+Processing transcript data to generate log2-transformed, median-normalized counts per kilobase
+Converting gene/transcript length to kilobases
+Merging in gene status
+Generating counts/kb, summing across transcripts per sample/gene
+Calculating per-sample size factor as median counts/kb value
+Scaling by size factor
+Log2-transforming scaled counts/kb
+Looking for expression outliers (normalized value more than 5 SD from mean per gene)
+        Found 2261 total outlier(s)
+         1401 gene(s) had at least one outlier
+         408 gene(s) had more than one outlier
+        Max outliers in a gene: 11
+                Seen in 1 gene(s)
+        Truncating outliers to mean +/- 5SD
+Batch correction using ComBat
+        Using batch as batch variable
+         Protecting 9 covariate(s)
+Running ComBat
+
+
+-------------Output from ComBat starts----------------------
+Found45batches
+Adjusting for9covariate(s) or covariate level(s)
+Standardizing Data across genes
+Fitting L/S model and finding priors
+Finding parametric adjustments
+Adjusting the Data
+
+
+-------------Output from ComBat ends----------------------
+
+
+Combat finished
+        Merging combat-corrected expression data with sample variables
+        Calculating correlations between corrected and uncorrected data by gene
+         148 gene(s) found with Pearson correlation coefficient < 0.9
+        Calculating correlations between corrected and uncorrected data by sample
+         0 sample(s) found with Pearson correlation coefficient < 0.9
+        Corrected/uncorrected gene correlations written to: SpectraData/Diag/correction_gene_correlation-2021-06-01.csv
+        Corrected/uncorrected samples correlations written to: SpectraData/Diag/correction_sample_correlation-2021-06-01.csv
+        Generating PCA for ComBat diagnostics
+        Comparing spectra (PCs) with sample variables for corrected data
+        Comparing spectra (PCs) with sample variables for un-corrected data
+        Combat diagnostic plot written to: SpectraData/Diag/combat_diag_plot-2021-06-01.pdf
+        Found 767 principal components
+        Using elbow method to select PCs
+                Selected 39 principal components explaining 0.65 of the original sample variance
+        Generating scree plot of PCA variances
+        Spectra scores and batch variables written to: SpectraData/spectra_scores-batch_variables-2021-06-01.csv
+        Spectra rotation matrix and gene centers written to: SpectraData/spectra_rotation_matrix-gene_centers-2021-06-01.csv
+        PCA variances and details written to: SpectraData/pca_details-2021-06-01.csv
+        Normalized expression data written to: SpectraData/normalized_expression-2021-06-01.csv.gz
+        Spectra scree plot written to: SpectraData/pca_scree_plot-2021-06-01.pdf
+Finished.
