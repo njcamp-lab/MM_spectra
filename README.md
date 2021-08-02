@@ -117,15 +117,29 @@ If there is a third column, it will be treated as the batch variable for ComBat 
 
 The R script that processes the input data and derives the spectra is: `tissue_spectra_process.R`
 
+The output from this script includes (file name for CoMMpass data: 
 
+- log info printed to stdout (`./SpectraData/logfile.txt`)
+- a scree plot (`./SpectraData/pca_scree_plot-2021-06-01.pdf`)
+- ComBat diagnostic plots (`./SpectraData/Diag/combat_diag_plot-2021-06-01.pdf`)
+- normalized expression values (not included)
+- spectra summary info (`./SpectraData/pca_details-2021-06-01.csv`)
+- the rotation matrix and gene centers (`./SpectraData/spectra_rotation_matrix-gene_centers-2021-06-01.csv.gz`)
+- spectra variables including the ComBat covariates (`./SpectraData/spectra_scores-batch_variables-2021-06-01.csv `)
 
 ### post-processing 
 
-
+The spectra variables are centered by default and we divide each by its standard deviation to put each spectrum on the same scale. All subsequent modeling steps were performed using these centered and scaled spectra variables. 
 
 
 
 ## predictive modeling
+
+
+
+
+
+#### bootstrap internal validation 
 
 
 
