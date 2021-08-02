@@ -18,13 +18,13 @@ https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000748.v
 
 We used versions IA14 of the RNAseq transcript counts, patient data, and sample QC data that were previously available from the MMRF. 
 
-***NOTE:*** there are several file paths to input files that will have to be changed to reflect the file structure and location of the input files on your system. `vroom` and `read_csv` (from the `vroom` and `readr` packages respectively are used for file input). 
+***NOTE:*** there are several file paths to input files that will have to be changed to reflect the file structure and location of the input files on your system. `vroom` and `read_csv` (from the `vroom` and `readr` packages respectively) are used for file input and require file paths. 
 
 ### additional reference data 
 
-We also used a version of `Homo_sapiens.GRCh37.74.gtf` that was converted to flat text and saved as a csv file (deposited here as `Homo_sapiens.GRCh37.74.gtf.flat.csv`) 
+We also used a version of `Homo_sapiens.GRCh37.74.gtf` that came with the CoMMpass data and was converted to a flat text csv file (deposited here as `Homo_sapiens.GRCh37.74.gtf.flat.csv`) 
 
-We removed genes identified by Arora et al. (https://doi.org/10.1038/s41598-020-59516-z) as discordant using  the file `Union_Discordant_genes_TCGA_GTEx_Arora_TS2B.csv` 
+We removed genes identified by Arora et al. (https://doi.org/10.1038/s41598-020-59516-z) as discordant using the gene list in the supplemental information of that paper. 
 
 ## spectra derivation 
 
@@ -40,7 +40,11 @@ We removed genes identified by Arora et al. (https://doi.org/10.1038/s41598-020-
 
 ### pre-processing
 
-`CoMMpass_transcript_preprocessing_auto_followincl_final_20210601.R` contains the pre-processing steps to generate the input files required for the spectra derivation script.   
+`CoMMpass_transcript_preprocessing_auto_followincl_final_20210601.R` contains the pre-processing steps to generate the input files required for the spectra derivation script, which are:
+
+-  gene expression data
+- gene metadata
+- sample metadata 
 
 These steps are outlined below.  
 
@@ -110,6 +114,8 @@ If there is only the two required columns, no ComBat correction will be performe
 If there is a third column, it will be treated as the batch variable for ComBat correction and any columns after the third will be used as covariates in the ComBat correction. Which variables should be included as batch and as covariates for ComBat is addressed above in the **exploratory data analysis** section. 
 
 ### spectra derivation script 
+
+The R script that processes the input data and derives the spectra is: `tissue_spectra_process.R`
 
 
 
