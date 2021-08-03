@@ -1,5 +1,9 @@
 # CoMMpass MM spectra derivation and modeling 
 
+*Deep transcriptome profiling of multiple myeloma with quantitative measures using the SPECTRA approach*  
+Rosalie Griffin Waller, Heidi Hanson, Michael J. Madsen, Brian Avery, Douglas Sborov, Nicola J. Camp  
+Preprint on medRxiv, doi: https://doi.org/10.1101/2020.10.06.20206714
+
 ## Intro
 
 Code used to generate spectra using the MMRF  CoMMpass multiple myeloma (MM) RNAseq data.  
