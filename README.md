@@ -141,11 +141,13 @@ The output from this script includes (file name for CoMMpass data):
 
 The spectra variables are centered by default and we divide each by its standard deviation to put each spectrum on the same scale. All subsequent modeling steps were performed using these centered and scaled spectra variables. 
 
-The standard deviation for the spectra can be derived from the variance (sd=sqrt(variance)) which is contained in `./SpectraData/pca_details-2021-06-01.csv` or derived directly from the scores (e.g. `CoMMpass_follow-up_samples_processing_20210602.nb.html`).
+The standard deviation for the spectra can be derived from the variance (sd=sqrt(variance)) which is contained in `./SpectraData/pca_details-2021-06-01.csv` or derived directly from the scores (e.g. `CoMMpass_follow-up_samples_processing_20210602.nb.html`).  
+
+The scaled spectra variables for the baseline samples are in `./SpectraData/Spectra_Variables_CoMMpass_Baseline_Samples_20210601.csv`
 
 ### Spectra description 
 
-The bar chart of the variance for the spectra and the spectra barcode plot (Figure 3) were generated using: `plot_spectra_variance_barcodes.Rmd`. 
+The bar chart of the variance for the spectra and the spectra barcode plot (Figure 3) were generated using: `plot_spectra_variance_barcodes.html`. 
 
 ## Predictive modeling
 
@@ -171,7 +173,7 @@ To mitigate overfitting, we used bootstrap internal validation (see *FJ Harrell,
 
 ## Descriptive modeling 
 
-The code for our description of the associations of the spectra with other variables (Figure 7) is contained in the R markdown file: `descriptive_models.Rmd`. 
+The code for our description of the associations of the spectra with other variables (Figure 7) is contained in the R markdown file: `descriptive_models.html`. 
 
 ## Added predictive value (APV)
 
@@ -187,9 +189,9 @@ APV was analyzed for each survival outcome separately:
 
 ## Follow-up samples 
 
-Follow-up samples from CoMMpass that were corrected together with the baseline samples had their spectra variables calculated, analyzed, and visualized (Figure 5): `followup_spectra_OS.Rmd`.
+Follow-up samples from CoMMpass that were corrected together with the baseline samples had their spectra variables calculated, analyzed, and visualized (Figure 5): `followup_spectra_OS.html`.
 
-`CoMMpass_follow-up_samples_processing_20210602.nb.html` contains additional information about the follow-up samples and the standard deviations used to scale them. 
+`CoMMpass_follow-up_samples_processing_20210602.nb.html` contains additional information about the follow-up samples and the standard deviations used to scale them. The standard deviation values themselves are in `./SpectraData/commpass_baseline_spectra_sds_20210602.csv`
 
-
+The scaled spectra variables for the follow-up samples are in `./SpectraData/Spectra_Variables_CoMMpass_Followup_Samples.csv`
 
