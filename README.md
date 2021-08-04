@@ -115,7 +115,7 @@ It has two required columns (names must match exactly):
 - `use`
 - `correct_only`
 
-`use` marks the sample for inclusion in the spectra derivation if the sample passes QC while `correct_only` samples will be included in ComBat correction and have their expression values reported if they pass QC but not included in the spectra derivation. In the CoMMpass data, baseline samples were marked `use` while `follow-up` samples were marked `correct_only` since we wanted to analyze the follow-up samples but not include them in the spectra derivation. 
+`use` marks the sample for inclusion in the spectra derivation if the sample passes QC while `correct_only` samples will be included in ComBat correction and have their expression values and spectra scores reported if they pass QC but ***not included*** in the spectra derivation. In the CoMMpass data, baseline samples were marked `use` while `follow-up` samples were marked `correct_only` since we wanted to analyze the follow-up samples but not include them in the spectra derivation process. 
 
 If there is only the two required columns, no ComBat correction will be performed. 
 
@@ -139,7 +139,7 @@ The output from this script includes (file name for CoMMpass data):
 - normalized expression values (not included)
 - spectra summary info (`./SpectraData/pca_details-2021-06-01.csv`)
 - the rotation matrix and gene centers (`./SpectraData/spectra_rotation_matrix-gene_centers-2021-06-01.csv.gz`)
-- spectra variables including the ComBat covariates (`./SpectraData/spectra_scores-batch_variables-2021-06-01.csv `)
+- spectra variables for all samples included (those marked `use` that were used for derivation, and scores are also calculated and reported for samples marked `correct_only`) and this file also includes the ComBat covariates (`./SpectraData/spectra_scores-batch_variables-2021-06-01.csv `)
 
 ### Post-processing 
 
