@@ -199,3 +199,12 @@ Follow-up samples from CoMMpass that were corrected together with the baseline s
 
 The scaled spectra variables for the follow-up samples are in `./SpectraData/Spectra_Variables_CoMMpass_Followup_Samples.csv`
 
+## Replication sample 
+
+We used the original microarray data from the UAMS derivation as our replication sample (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE2658, DOI: 10.1182/blood-2006-07-038430). 
+
+`MM_microarray_data_processing_20220414.nb.html` contains the details of downloading, processing, and normalizing the GSE2658 microarray data including converting probes to genes. 
+
+`GSE2658_spectra_analysis_prodvers_20220711.nb.html` contains the code for generating the spectra variables and H/L risk groups for the GSE2658 samples using the CoMMpass derived loadings and GMM threshold as well as the HR and figures for the replication set. 
+
+`GSE2658_UAMS_SBUK_20220712.nb.html` has the probe to gene mapping for the UAMS genes and the calculation and analysis of the UAMS on the GSE2658 data.
