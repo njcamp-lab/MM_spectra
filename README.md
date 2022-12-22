@@ -51,8 +51,8 @@ To evaluate the added predictive value (APV, described later) of the spectra we 
 `CoMMpass_transcript_preprocessing_auto_followincl_final_20210601.R` contains the pre-processing steps to generate the input files required for the spectra derivation script, which are:
 
 -  gene expression data
-- gene metadata
-- sample metadata 
+-  gene metadata
+-  sample metadata 
 
 These steps are outlined below.  
 
@@ -198,9 +198,12 @@ Follow-up samples from CoMMpass that were corrected together with the baseline s
 `CoMMpass_follow-up_samples_processing_20210602.nb.html` contains additional information about the follow-up samples and the standard deviations used to scale them. The standard deviation values themselves are in `./SpectraData/commpass_baseline_spectra_sds_20210602.csv`
 
 The scaled spectra variables for the follow-up samples are in `./SpectraData/Spectra_Variables_CoMMpass_Followup_Samples.csv`
+
 ## GSEA 
 
 We performed GSEA on the ranked list of gene loadings from the rotation matrix for spectra variable S5 using the fgsea R package (https://bioconductor.org/packages/release/bioc/html/fgsea.html). This analysis and results are in: `CoMMpass_S5_spectra_GSEA_20220715.nb.html`
+
+Also the code for the GSEA Hallmark pathway by spectra supplemental plot is in: `CoMMpass_spectra_outcomes_GSEA_figure_20221207.nb.html` 
 
 ## Replication sample 
 
